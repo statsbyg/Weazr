@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply from: 'dependencies.gradle'
+
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -28,19 +30,22 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "com.android.support:appcompat-v7:27.1.1"
-    implementation "com.android.support.constraint:constraint-layout:1.1.3"
-    implementation "com.squareup.retrofit2:retrofit:2.4.0"
-    //Gson
-    implementation 'com.google.code.gson:gson:2.8.5'
-    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
-    // Koin for Android
-    implementation 'org.koin:koin-android:1.0.0'
-    // Kotlin Coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:0.26.1"
+    implementation libs.kotlin_stdlib_jdk_7_lib
+    implementation libs.appcompat_v7_lib
+    implementation libs.constraint_layout_lib
+    implementation libs.retrofit_lib
 
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    // Gson
+    implementation libs.gson_lib
+    implementation libs.converter_gson_lib
+
+    // Koin for Android
+    implementation libs.koin_lib
+
+    // Kotlin Coroutines
+    implementation libs.kotlinx_coroutines_android_lib
+
+    testImplementation libs.junit_lib
+    androidTestImplementation libs.runner_lib
+    androidTestImplementation libs.espresso_core_lib
 }
